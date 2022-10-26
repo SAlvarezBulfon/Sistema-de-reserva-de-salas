@@ -8,9 +8,11 @@ public class ListaUsers {
     public ListaUsers() {
     }
 
-    public ListaUsers(ArrayList<User> data) {
+  public ListaUsers(ArrayList<User> data) {
         this.data = data;
+
     }
+
 
     public ArrayList<User> getData() {
         return data;
@@ -35,6 +37,16 @@ public class ListaUsers {
         return exist;
     }
 
+    public boolean nickExists(User user){
+        boolean exist = false;
+        for (User e : data) {
+            if(e.getNick().equals(user.getNick())){
+                exist = true;
+            }
+        }
+        return  exist;
+    }
+
     public User obtenerUsuario(String nick){
         for (User e : data){
             if(e.getNick().equals(nick)){
@@ -42,5 +54,20 @@ public class ListaUsers {
             }
         }
         return null;
+    }
+
+
+ public boolean yaReservado(User user){
+        boolean reservado = false;
+        for (int j  = 0; j < data.size(); j++){
+            for (int i = 0; i < data.get(j).getFechaYHora().size(); i++){
+                for (int k = 0; i < user.getFechaYHora().size(); k++){
+                    if(data.get(j).getFechaYHora().get(i).equals(user.getFechaYHora().get(k))){
+                        reservado = true;
+                    }
+                }
+            }
+        }
+        return  reservado;
     }
 }

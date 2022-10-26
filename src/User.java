@@ -6,8 +6,7 @@ public class User {
     private String pass;
 
     private ArrayList<Sala> salasReservadas = new ArrayList<>();
-    private ArrayList <String> fechaReservada = new ArrayList<>();
-    private ArrayList <String> horaReservada = new ArrayList<>();
+    private  ArrayList<FechaYHora> fechaYHora = new ArrayList<>();
     public User() {
     }
 
@@ -32,19 +31,6 @@ public class User {
         this.pass = pass;
     }
 
-
-    public void setFechaReservada(ArrayList<String> fechaReservada) {
-        this.fechaReservada = fechaReservada;
-    }
-
-    public ArrayList<String> getHoraReservada() {
-        return horaReservada;
-    }
-
-    public void setHoraReservada(ArrayList<String> horaReservada) {
-        this.horaReservada = horaReservada;
-    }
-
     public ArrayList<Sala> getSalasReservadas() {
         return salasReservadas;
     }
@@ -53,20 +39,32 @@ public class User {
         this.salasReservadas = salasReservadas;
     }
 
-    public void addFechaReservada(String fecha){
-        fechaReservada.add(fecha);
+//Getter y setter de la fecha junto con la hora
+
+    public void setFechaYHora(ArrayList<FechaYHora> fechaYHora) {
+        this.fechaYHora = fechaYHora;
     }
 
+    public ArrayList<FechaYHora> getFechaYHora() {
+        return fechaYHora;
+    }
+
+    public void addFechaYHora(FechaYHora fecha){
+        getFechaYHora().add(fecha);
+    }
+
+
     public void mostrarSalasReservas(){
-                System.out.println();
                 for (int i = 0; i < salasReservadas.size(); i++) {
                     System.out.println("Nombre: " + salasReservadas.get(i).getName());
                     System.out.println("Descripción: " + salasReservadas.get(i).getDescription());
-                    System.out.println("Hora: " + horaReservada.get(i));
-                    System.out.println("Fecha:" + fechaReservada.get(i));
+                    System.out.println("Hora: " + getFechaYHora().get(i).getHora());
+                    System.out.println("Fecha: " + getFechaYHora().get(i).getFecha());
+                    System.out.println();
                 }
 
     }
+
 
 
 }
