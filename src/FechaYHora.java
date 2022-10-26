@@ -28,12 +28,4 @@ public class FechaYHora {
     }
 
 
-    public boolean equals(Object obj){
-        FechaYHora fyh = (FechaYHora) obj;
-
-        if(fyh.getFecha().equals(this.fecha) && fyh.getHora().equals(this.hora)){
-            return true;
-        }
-        return false;
-    }
 }

@@ -57,17 +57,4 @@ public class ListaUsers {
     }
 
 
- public boolean yaReservado(User user){
-        boolean reservado = false;
-        for (int j  = 0; j < data.size(); j++){
-            for (int i = 0; i < data.get(j).getFechaYHora().size(); i++){
-                for (int k = 0; i < user.getFechaYHora().size(); k++){
-                    if(data.get(j).getFechaYHora().get(i).equals(user.getFechaYHora().get(k))){
-                        reservado = true;
-                    }
-                }
-            }
-        }
-        return  reservado;
-    }
 }
